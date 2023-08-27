@@ -5,6 +5,7 @@ public class StudentList {
 
 
 
+    // Read the content of the file
 	public static String FileReader()
 	{
 		Constants Constant = new Constants();
@@ -23,6 +24,7 @@ public class StudentList {
 		return studentData;
 
 	}
+	// Write content to the file
 	public static void fileWriter(String content)
 	{
 		Constants Constant = new Constants();
@@ -45,7 +47,7 @@ public class StudentList {
 			System.out.println(Constant.INVALID);
 
 		}
-		 else if(args[0].equals(Constant.SHOW_DATA)) {
+		 else if(args[0].equals(Constant.SHOW_DATA)) { // Display all student names
 			System.out.println(Constant.LOADING_DATA);
 
 			for(String name : FileReader().split(Constant.SPLIT)) {
@@ -54,7 +56,8 @@ public class StudentList {
 			}
 			System.out.println(Constant.LOADED_DATA);
 		}
-		else if(args[0].equals(Constant.RANDOM_DATA))
+		else if(args[0].equals(Constant.RANDOM_DATA))// Display a random student's name
+
 		{
 			System.out.println(Constant.LOADING_DATA);
 
@@ -63,7 +66,7 @@ public class StudentList {
 
 			System.out.println(Constant.LOADED_DATA);
 		}
-		else if(args[0].contains(Constant.ADD_DATA)){
+		else if(args[0].contains(Constant.ADD_DATA)){  // Add a new student
 			System.out.println(Constant.LOADING_DATA);
 			try {
 
@@ -74,7 +77,7 @@ public class StudentList {
 							
 			System.out.println(Constant.LOADED_DATA);
 		}
-		else if(args[0].contains(Constant.SEARCH_DATA))
+		else if(args[0].contains(Constant.SEARCH_DATA))  // Search for a student by name
 		{
 			System.out.println(Constant.LOADING_DATA);
 
@@ -94,7 +97,7 @@ public class StudentList {
 
 			System.out.println(Constant.LOADED_DATA);
 		}
-		else if(args[0].contains(Constant.COUNT_WORDS))
+		else if(args[0].contains(Constant.COUNT_WORDS)) // Count the number of words in the student data
 		{
 			System.out.println(Constant.LOADING_DATA);
 
