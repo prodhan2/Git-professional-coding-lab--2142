@@ -105,22 +105,9 @@ public class StudentList {
 			System.out.println(Constant.LOADING_DATA);
 
 			String studentData = FileReader();
-			char characters[] = studentData.toCharArray();
-			boolean in_word = false;
-			int wordCount=0;
-			for(char character:characters) {
-				if(character ==' ')
-				{
-					if (!in_word) {
-						wordCount++;
-						in_word =true;
-					}
-					else {
-						in_word=false;
-					}
-				}
-			}
-			System.out.println(wordCount +Constant.WORDS_FOUND );
+			String studentName[] = studentData.split(Constant.SPLIT);
+
+			System.out.println(studentName.length +Constant.WORDS_FOUND );
 
 			System.out.println(Constant.LOADED_DATA);
 		}
