@@ -40,7 +40,12 @@ public class StudentList {
 		Constants Constant = new Constants();
 
 //		Check arguments
-		if(args[0].equals(Constant.SHOW_DATA)) {
+		if(args.length<1)
+		{
+			System.out.println(Constant.INVALID);
+
+		}
+		 else if(args[0].equals(Constant.SHOW_DATA)) {
 			System.out.println(Constant.LOADING_DATA);
 
 			for(String name : FileReader().split(Constant.SPLIT)) {
