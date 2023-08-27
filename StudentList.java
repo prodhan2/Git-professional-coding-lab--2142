@@ -42,9 +42,8 @@ public class StudentList {
 //		Check arguments
 		if(args[0].equals(Constant.SHOW_DATA)) {
 			System.out.println(Constant.LOADING_DATA);
-			String studentData = FileReader();
-			String studentName[] = studentData.split(Constant.SPLIT);
-			for(String name : studentName) {
+
+			for(String name : FileReader().split(Constant.SPLIT)) {
 				System.out.println(name);
 
 			}
@@ -53,12 +52,9 @@ public class StudentList {
 		else if(args[0].equals(Constant.RANDOM_DATA))
 		{
 			System.out.println(Constant.LOADING_DATA);
-			String studentData = FileReader();
 
-			String studentName[] = studentData.split(",");
-			Random random = new Random();
-			int index = random.nextInt(studentName.length);
-			System.out.println(studentName[index]);
+			int index =  new Random().nextInt(FileReader().split(Constant.SPLIT).length);
+			System.out.println(FileReader().split(Constant.SPLIT)[index]);
 
 			System.out.println(Constant.LOADED_DATA);
 		}
@@ -66,12 +62,7 @@ public class StudentList {
 			System.out.println(Constant.LOADING_DATA);
 			try {
 
-			String newStudentName = args[0].substring(1);
-	        Date currentDate = new Date();
-	        String dataFormatPattern = Constant.DATE_FORMATE;
-	        DateFormat dateFormat = new SimpleDateFormat(dataFormatPattern);
-	        String formattedDate= dateFormat.format(currentDate);
-			fileWriter(", "+newStudentName+Constant.LAST_UPDATE+formattedDate);
+			fileWriter(", "+args[0].substring(1)+Constant.LAST_UPDATE+new SimpleDateFormat( Constant.DATE_FORMATE).format(new Date()));
 			} catch (Exception e){
 				System.out.println(e);
 			}
@@ -82,12 +73,10 @@ public class StudentList {
 		{
 			System.out.println(Constant.LOADING_DATA);
 
-			String studentData = FileReader();
-			String studentName[] = studentData.split(Constant.SPLIT);
 			boolean found = false;
-			String t = args[0].substring(1);
-			for(int idx = 0; idx<studentName.length && !found; idx++) {
-				if(studentName[idx].equals(t)) {
+
+			for(int idx = 0; idx<FileReader().split(Constant.SPLIT).length && !found; idx++) {
+				if(FileReader().split(Constant.SPLIT)[idx].equals(args[0].substring(1))) {
 					System.out.println(Constant.FOUND);
 					found=true;
 				}
@@ -104,10 +93,7 @@ public class StudentList {
 		{
 			System.out.println(Constant.LOADING_DATA);
 
-			String studentData = FileReader();
-			String studentName[] = studentData.split(Constant.SPLIT);
-
-			System.out.println(studentName.length +Constant.WORDS_FOUND );
+			System.out.println(FileReader().split(Constant.SPLIT).length +Constant.WORDS_FOUND );
 
 			System.out.println(Constant.LOADED_DATA);
 		}
